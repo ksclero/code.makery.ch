@@ -1,6 +1,6 @@
 ---
 layout: article
-title: "JavaFX 8 Tutorial - Part 1: Scene Builder"
+title: "JavaFX 8 Tutorial - Parte 1: Scene Builder"
 date: 2014-04-19 01:00
 updated: 2015-03-12 00:00
 slug: javafx-8-tutorial-part1
@@ -11,36 +11,36 @@ published: true
 prettify: true
 comments: true
 sidebars:
-- header: "Articles in this Series"
+- header: "Articoli in questa serie"
   body:
-  - text: "Introduction"
+  - text: "Introduzione"
     link: /java/javafx-8-tutorial-intro
     paging: Intro
-  - text: "Part 1: Scene Builder"
+    active: true
+  - text: "Parte 1: Scene Builder"
     link: /java/javafx-8-tutorial-part1/
     paging: 1
-    active: true
-  - text: "Part 2: Model and TableView"
+  - text: "Parte 2: Model and TableView"
     link: /java/javafx-8-tutorial-part2/
     paging: 2
-  - text: "Part 3: Interacting with the User"
+  - text: "Parte 3: Interazione con l'utente"
     link: /java/javafx-8-tutorial-part3/
     paging: 3
-  - text: "Part 4: CSS Styling"
+  - text: "Parte 4: CSS Styling"
     link: /java/javafx-8-tutorial-part4/
     paging: 4
-  - text: "Part 5: Storing Data as XML"
+  - text: "Parte 5: Conservazione dati come XML"
     link: /java/javafx-8-tutorial-part5/
     paging: 5
-  - text: "Part 6: Statistics Chart"
+  - text: "Parte 6: Grafico delle statistiche"
     link: /java/javafx-8-tutorial-part6/
     paging: 6
-  - text: "Part 7: Deployment"
+  - text: "Parte 7: Deployment"
     link: /java/javafx-8-tutorial-part7/
     paging: 7
-- header: "Download Sources"
+- header: "Downloa"
   body:
-  - text: Part 1 as Eclipse Project <em>(requires at least JDK 8u40)</em>
+  - text: Parte 1 come progetto Eclipse <em>(requires at least JDK 8u40)</em>
     link: https://github.com/marcojakob/tutorial-javafx-8/releases/download/v1.1/addressapp-jfx8u40-part-1.zip
     icon-css: fa fa-fw fa-download
 - header: Languages
@@ -68,88 +68,91 @@ sidebars:
   - text: Français
     link: /library/javafx-8-tutorial/fr/part1/
     icon-css: fa fa-fw fa-globe
+  - text: Italiano
+    link: /library/javafx-8-tutorial/it/
+    icon-css: fa fa-fw fa-globe
 ---
 
 ![Screenshot AddressApp Part 1](/assets/library/javafx-8-tutorial/part1/addressapp-part1.png)
 
-### Topics in Part 1
+### Argomenti nella parte 1
 
-* Getting to know JavaFX
-* Creating and starting a JavaFX Project
-* Using Scene Builder to design the user interface
-* Basic application structure using the Model-View-Controller (MVC) pattern
+* Conoscere JavaFX
+* Creare ed eseguire un progetto JavaFX 
+* Usare Scene Builder per progettare l'interfaccia utente
+* Struttura base dell'applicazione usando il pattern Model-View-Controller (MVC) 
 
 
 *****
 
 
-### Prerequisites
+### Prerequisiti
 
-* Latest [Java JDK 8](http://www.oracle.com/technetwork/java/javase/downloads/index.html) (includes **JavaFX 8**).
-* Eclipse 4.4 or greater with e(fx)clipse plugin. The easiest way is to download the preconfigured distro from the [e(fx)clipse website](http://efxclipse.bestsolution.at/install.html#all-in-one). As an alternative you can use an [update site](http://www.eclipse.org/efxclipse/install.html) for your Eclipse installation.
-* [Scene Builder 8.0](http://gluonhq.com/products/downloads/) (provided by Gluon because [Oracle only ships it in source code form](http://www.oracle.com/technetwork/java/javase/downloads/sb2download-2177776.html)).
+* Ultima versione di [Java JDK 8](http://www.oracle.com/technetwork/java/javase/downloads/index.html) (incluso **JavaFX 8**).
+* Eclipse 4.4 o superiore con il plugin e(fx)clipse. La via più facile è scaricare una distro preconfigurata dal  [sito di e(fx)clipse](http://efxclipse.bestsolution.at/install.html#all-in-one). Come alternativa puoi usare un [sito di aggiornamento](http://www.eclipse.org/efxclipse/install.html) per la tua installazione di Eclipse.
+* [Scene Builder 8.0](http://gluonhq.com/products/downloads/) (fornito da Gluon perchè [Oracle lo rende disponibile solo sotto forma di codice sorgente](http://www.oracle.com/technetwork/java/javase/downloads/sb2download-2177776.html)).
 
 
-### Eclipse Configurations 
+### Configurazione di Eclipse 
 
-We need to tell Eclipse to use JDK 8 and also where it will find the Scene Builder:
+Abbiamo bisogno che Eclipse usi JDK 8 e dovremo dirgli dove trovare Scene Builder:
 
-1. Open the Eclipse Preferences and navigate to *Java | Installed JREs*.
+1. Apri le preferenze di Eclipse e vai a *Java | Installed JREs*.
 
-2. Click *Add...*, select *Standard VM* and choose the installation *Directory* of your JDK 8.
+2. Clicca *Add...*, seleziona *Standard VM* e scegli la *Directory* di installazione del tuo JDK 8.
 
-3. Remove the other JREs or JDKs so that the **JDK 8 becomes the default**.   
+3. Rimuovi gli altri JREs o JDKs così che **JDK 8 vada di default**.   
 ![Preferences JDK](/assets/library/javafx-8-tutorial/part1/preferences-jdk.png)
 
-4. Navigate to *Java | Compiler*. Set the **Compiler compliance level to 1.8**.   
+4. Vai su *Java | Compiler*. Imposta **Compiler compliance level to 1.8**.   
 ![Preferences Compliance](/assets/library/javafx-8-tutorial/part1/preferences-compliance.png)
 
-5. Navigate to the *JavaFX* preferences. Specify the path to your Scene Builder executable.   
+5. Vai sulle preferenze di *JavaFX*. Specifica il percorso dell'eseguibile di Scene Builder.   
 ![Preferences JavaFX](/assets/library/javafx-8-tutorial/part1/preferences-javafx.png)
 
 
-### Helpful Links
+### Link di supporto
 
-You might want to bookmark the following links:
+Potresti voler aggiungere ai tuoi preferiti i seguenti link:
 
 * [Java 8 API](http://docs.oracle.com/javase/8/docs/api/) - JavaDoc for the standard Java classes
 * [JavaFX 8 API](http://docs.oracle.com/javase/8/javafx/api/) - JavaDoc for JavaFX classes
 * [ControlsFX API](http://controlsfx.bitbucket.org/) - JavaDoc for the [ControlsFX project](http://fxexperience.com/controlsfx/) for additional JavaFX controls
 * [Oracle's JavaFX Tutorials](http://docs.oracle.com/javase/8/javafx/get-started-tutorial/get_start_apps.htm) - Official JavaFX Tutorials by Oracle
 
-Now, let's get started!
+Adesso, cominciamo!
 
 
 *****
 
 
-## Create a new JavaFX Project
+## Creare un nuovo progetto JavaFX
 
-In Eclipse (with e(fx)clipse installed) go to *File | New | Other...* and choose *JavaFX Project*.   
-Specify the Name of the project (e.g. *AddressApp*) and click *Finish*.
+In Eclipse (con e(fx)clipse installato) andare su *File | New | Other...* e scegliere *JavaFX Project*.   
+Specificare il nome del progetto (e.g. *AddressApp*) e cliccare su *Finish*.
 
-Remove the *application* package and its content if it was automatically created.
+Rimuovere il package *application*  e il suo contenuto se questo viene automaticamente creato.
 
 
-### Create the Packages
+### Creare i Packages
 
-Right from the start we will follow good software design principles. One very important principle is that of [**Model-View-Controller** (MVC)](http://en.wikipedia.org/wiki/Model_View_Controller). According to this we divide our code into three units and create a package for each (Right-click on the src-folder, *New... | Package*):
+Fin dall'inizio seguiremo i buoni principi della progettazione softaware. Un principio molto importante è qeullo del [**Model-View-Controller** (MVC)](http://en.wikipedia.org/wiki/Model_View_Controller). Segeuendo questo, dividiamo il nostro codice in tre unità e creiamo un package per ognuna di queste (Tasto destro su src-folder, *New... | Package*):
 
-* `ch.makery.address` - contains *most* controller classes (=business logic)
-* `ch.makery.address.model` - contains model classes
-* `ch.makery.address.view` - contains views 
+* `ch.makery.address` - contenente *la maggior parte* delle classi controller (=business logic)
+* `ch.makery.address.model` - contenente le classi model
+* `ch.makery.address.view` - contenente le view 
 
-**Note:** Our view package will also contain some controllers that are directly related to a single view. Let's call them **view-controllers**.
+**Nota:** Il nostro package view conterrà inoltre alcuni controller che sono relativi as una singola view. Gli chiameremo **view-controllers**.
 
 
 *****
 
 
-## Create the FXML Layout File
+## Creare il file di layout FXML 
 
-There are two ways to create the user interface. Either using an XML file or programming everything in Java. Looking around the internet you will encounter both. We will use XML (ending in .fxml) for most parts. I find it a cleaner way to keep the controller and view separated from each other. Further, we can use the graphical Scene Builder to edit our XML. That means we will not have to directly work with XML.
+Ci sono due strade per creare l'interfaccia utente. O usare un file XML o programmarla tutta in Java. Gurdandovi intorno su internet incontrerete entrambe. Useremo XML (.fxml) per molte parti. IO trovo che questa sia la via più pulita per tenere controller e view saparati gli uni dagli altri. Inoltre, possimao usare Scene Builder per editare i nostri XML. Questo significa che non lavoreremo direttamente con XML.
 
-Right-click on the view package and create a new *FXML Document* called `PersonOverview`.   
+Tasto destro sul package view e creiamo un nuovo *FXML Document* chiamato `PersonOverview`.   
 
 ![New FXML Document](/assets/library/javafx-8-tutorial/part1/new-fxml-document.png)
 
@@ -160,23 +163,23 @@ Right-click on the view package and create a new *FXML Document* called `PersonO
 *****
 
 
-## Design with Scene Builder
+## Progettare con Scene Builder
 
 <div class="alert alert-warning">
-  **Note:** If you can't get it to work, download the source of this tutorial part and try it with the included fxml.
+  **Nota:** Se non riuscite a farlo funzionare, scaricate il sorgente di questa parte del tutorial e provate con il file fxml incluso.
 </div>
 
-Right-click on `PersonOverview.fxml` and choose *Open with Scene Builder*. Now you should see the Scene Builder with just an *AncherPane* (visible under Hierarchy on the left).
+Tasto destro su `PersonOverview.fxml` e click su *Open with Scene Builder*. Adesso dovreste vedere Scene Builder con solo un *AncherPane* (visibile sotto Hierarchy sulla sinistra).
 
-(If Scene Builder does not open, go to *Window | Preferences | JavaFX* and set the correct path to your Scene Builder installation).
+(Se Scene Builder non si apre, andare su *Window | Preferences | JavaFX* e settare il giusto percorso dell'installazione di Scene Builder).
 
-1. Select the *Anchor Pane* in your Hierarchy and adjust the size under Layout (right side):   
+1. Selezionare *Anchor Pane* nella Hierarchy e modificare le dimensioni sotto Layout (lato destro):   
 ![Anchor Pane Size](/assets/library/javafx-8-tutorial/part1/anchor-pane-size.png)
 
-2. Add a *Split Pane (Horizontal Flow)* by dragging it from the Library into the main area. Right-click the *Split Pane* in the *Hierarchy* view and select *Fit to Parent*.   
+2. Aggiungere un *Split Pane (Horizontal Flow)* trascinandolo dalla Library nella area principale. Tasto destro su *Split Pane* nella vista *Hierarchy* e selezionare *Fit to Parent*.   
 ![Fit to Parent](/assets/library/javafx-8-tutorial/part1/fit-to-parent.png)
 
-3. Drag a *TableView* (under *Controls*) into the left side of the *SplitPane*. Select the TableView (not a Column) and set the following layout constraints to the TableView. Inside an *AnchorPane* you can always set anchors to the four borders ([more information on Layouts](http://docs.oracle.com/javase/8/javafx/layout-tutorial/builtin_layouts.htm)).   
+3. Trascinare una *TableView* (sotto *Controls*) nella parte sinistra dello *SplitPane*. Selezionare la TableView (non la colonna) e impostare il seguente layout constraints per la TableView. All'interno di un *AnchorPane* puoi sempre impostare gli  anchors per i quattro bordi (Più informazioni sui Layouts](http://docs.oracle.com/javase/8/javafx/layout-tutorial/builtin_layouts.htm)).   
 ![TableView Anchors](/assets/library/javafx-8-tutorial/part1/table-view-anchors.png)
 
 4. Go to the menu *Preview | Show Preview in Window* to see, whether it behaves right. Try resizing the window. The TableView should resize together with the window as it is anchored to the borders.
